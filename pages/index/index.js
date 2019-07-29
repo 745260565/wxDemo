@@ -2,53 +2,49 @@
 //获取应用实例
 const app = getApp()
 
+//注册一个页面
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    name: 'chenghao',
+    age: 18,
+    students: [
+      {id: 110, name: 'sdk1',age: 30},
+      { id: 110, name: 'sdk2', age: 30 },
+      { id: 110, name: 'sdk3', age: 30 },
+      { id: 110, name: 'sdk4', age: 30 },
+    ],
+    counter: 0
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
-  },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
+  handleBtnClick() {
+    //界面不会刷新
+    // this.data.counter += 1,
+    // console.log('发生了点击', this.data.counter)
+
+    //this.setDat()
     this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+      counter: this.data.counter+1
     })
+  },
+
+  handleSubtractionBtnClick() {
+    this.setData({
+      counter: this.data.counter - 1
+    })
+  },
+  handleGetUserInfo(event){
+    console.log(event)
+  },
+  //监听页面的生命周期
+  onLoad() {
+    // wx.request({
+    //   url: 'https://www.baidu.com',
+    //   success: (res) => {
+    //     consloe.log(res)
+    //   }
+    // })
   }
 })
+
+//编程范式
+//命令式编程:原生操作DOM
+//声明式编程:Vue/React/Angular

@@ -1,6 +1,9 @@
 //app.js
+//注册一个小程序
 App({
-  onLaunch: function () {
+  //小程序初始化完成时，会执行的生命周期函数
+  onLaunch: function (options) {
+    // console.log(options)
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -32,8 +35,38 @@ App({
         }
       }
     })
+    wx.getUserInfo({
+      //数据拿到之后，再进行回调的
+      success: function(res){
+        console.log(res)
+      }
+    })
+    // setTimeout(function(){
+    //   const err = new Error()
+    //   throw err
+    // }, 3000)
   },
   globalData: {
+    name: 'chenghao',
+    age: 30,
     userInfo: null
+  },
+  //小程序界面显示出来之后会执行的生命周期函数
+  onShow: function (options){
+    // console.log(options)
+    switch(options.scene){
+      case 1001:
+        break;
+      case 1005:
+        break;
+    }
+  },
+  //界面隐藏
+  onHide: function(){
+
+  },
+  //小程序中发生错误时会执行
+  onError: function(){
+    console.log('发生错误')
   }
 })
