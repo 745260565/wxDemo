@@ -1,0 +1,16 @@
+<!--pages/input/input.wxml-->
+<!-- value:初始内容 -->
+<input value="123"></input>
+<!-- type：决定健盘类型 -->
+<input type="number"></input>
+<input type="idcard"></input>
+<input type="digit"></input>
+
+<!-- password:暗文 -->
+<input password></input>
+
+<!-- palceholder 占位符 -->
+<input placeholder="请输入内容"></input>
+
+<!-- input绑定事件 -->
+<input bindinput="handleInput" bindfocus="handleFocus" bindblur="handleBlur"></input>

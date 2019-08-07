@@ -1,5 +1,14 @@
 {
   "pages": [
+    "pages/home/home",
+    "pages/wxs/wxs",
+    "pages/wxss/wxss",
+    "pages/scroll/scroll",
+    "pages/input/input",
+    "pages/image/image",
+    "pages/view/view",
+    "pages/button/button",
+    "pages/text/text",
     "pages/index/index",
     "pages/logs/logs"
   ],
@@ -20,14 +29,14 @@
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "/pages/assets/tabbar/home.png",
-        "selectedIconPath": "/pages/assets/tabbar/homeSelect.png"
+        "iconPath": "/assets/tabbar/home.png",
+        "selectedIconPath": "/assets/tabbar/homeSelect.png"
       },
       {
         "pagePath": "pages/logs/logs",
         "text": "日志",
-        "iconPath": "/pages/assets/tabbar/user.png",
-        "selectedIconPath": "/pages/assets/tabbar/userSelect.png"
+        "iconPath": "/assets/tabbar/user.png",
+        "selectedIconPath": "/assets/tabbar/userSelect.png"
       }
     ]
   },

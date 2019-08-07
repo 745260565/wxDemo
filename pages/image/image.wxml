@@ -1,0 +1,18 @@
+<!--pages/image/image.wxml-->
+
+<!-- image组件可以写成单标签，也可以修改成双标签
+      image组件默认有自己的大小 320x240
+      image组件时一个行内块级元素 inline-block-->
+<!-- <image/> -->
+<!-- <image src="/assets/test/123.jpeg"></image> -->
+<!-- <image src="https://res.wx.qq.com/wxdoc/dist/assets/img/0.4cb08bb4.jpg"></image> -->
+
+<!-- 相册中的图片 -->
+<!-- <button bindtap="hadleChooseAlbum">选择一个图片</button>
+<image src ="{{imagePath}}"></image> -->
+
+<!-- bindload -->
+<!-- <image wx:for="{{10}}" src="https://res.wx.qq.com/wxdoc/dist/assets/img/0.4cb08bb4.jpg" bindload="handleImageLoad" lazy-load></image> -->
+
+<!-- show-menu-by-longpress长按图片出现识别小程序码 -->
+<image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1969939437,3569890296&fm=26&gp=0.jpg" show-menu-by-longpress></image>

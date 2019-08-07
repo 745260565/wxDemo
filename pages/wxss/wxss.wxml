@@ -1,0 +1,94 @@
+<!--pages/wxss/wxss.wxml-->
+
+<!-- 设置样式的三种方式 -->
+
+<!-- 行内样式，内联样式 键值对-->
+<!-- <view style="color: red; font-size:32px">sdfsdk</view> -->
+
+<!-- 页内样式  class id -->
+<!-- <view class="box">12334sdf</view> -->
+
+<!-- 全局样式 class id-->
+<!-- <view class="container1">sdfsdlkjl</view> -->
+
+
+<!-- 三种样式作用于同一个组件 -->
+<!-- !important权限最高 行内》页内》全局 -->
+<view style="background: red;" class="content">skdjflsdkjf</view>
+
+<!-- wxss中的单位:rpx -->
+<!-- iphone上,屏宽375px,750个物理像素， -->
+<!-- <view class="box1">sdkjflk</view>
+<view class="box2">sdkjflk</view> -->
+
+<!-- <view class="content1">sdkjflk</view>
+<view class="content2">sdkjflk</view>
+
+<button class="btn">sldkl</button> -->
+
+<!-- 官方样式库 -->
+<view class="weui-search-bar">
+  <view class="weui-search-bar__form">
+    <view class="weui-search-bar__box">
+      <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+      <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+      <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+        <icon type="clear" size="14"></icon>
+      </view>
+    </view>
+    <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+      <icon class="weui-icon-search" type="search" size="14"></icon>
+      <view class="weui-search-bar__text">搜索</view>
+    </label>
+  </view>
+  <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+</view>
+
+<view>{{firstname}} {{lastname}}</view>
+<view>{{ firstname + " " + lastname}}</view>
+<view>{{age >= 18? "成年人":"未成年人"}}</view>
+<view>{{nowTime}}</view>
+<button size="mini" bindtap="handleSwitchColor">切换颜色</button>
+<view class='box5 {{isActive? "active":""}}'>哈哈哈</view>
+
+<view>-------条件判断----------</view>
+<button size="mini" bindtap="handleSwitchShow">切换显示</button>
+<view wx:if="{{isShow}}">哈哈</view>
+
+<button size="mini" bindtap="handleIncrement">分数加6</button>
+<view wx:if="{{score >= 90}}">优秀</view>
+<view wx:elif="{{score >= 80}}">良好</view>
+<view wx:elif="{{score >= 60}}">及格</view>
+<view wx:else>不及格</view>
+
+<!-- hidden将一个组件隐藏时，该组件依然存在 -->
+<!-- wx:if 将一个组件隐藏起来时，该组件不存在 -->
+<!-- 如果显示和隐藏切换频率非常高，选择hidden，否则用wx:if -->
+
+<view>------列表渲染---------</view>
+<!-- wx:for 遍历数组、字符串、数字 -->
+<!-- <view wx:for="{{['abc','cab','nab']}}">{{item}} {{index}}</view>
+<view wx:for="helloword">{{item}} {{index}}</view>
+<view wx:for="{{5}}">{{item}} {{index}}</view> -->
+
+<!-- item,index起名字 -->
+<!-- <view wx:for="{{movies}}" wx:for-item="movie" wx:for-index='i'>{{movie}} {{i}}</view> -->
+
+<!-- <block wx:for="{{nums}}" wx:for-item="innernums">
+  <block wx:for="{{innernums}}">
+    <view>{{item}}</view>
+  </block>
+</block> -->
+
+<!-- template 模板 可以用单标签，也可以用双标签-->
+<!-- <template name="contentItem">
+  <button size="mini">{{btnText}}</button>
+  <view>{{contentStr}}</view>
+</template>
+
+<template is="contentItem" data="{{btnText:'按钮'， contentStr:‘哈哈哈’}}"/> -->
+<!-- <template is="contentItem"/> -->
+<!-- <import src="">
+<include src=""> -->
+
+<view>{{numberFoFixed(25.99999)}}</view>

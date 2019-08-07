@@ -38,7 +38,7 @@ App({
     wx.getUserInfo({
       //数据拿到之后，再进行回调的
       success: function(res){
-        console.log(res)
+        // console.log(res)
       }
     })
     // setTimeout(function(){
