@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/cpn/cpn",
     "pages/home/home",
     "pages/wxs/wxs",
     "pages/wxss/wxss",
@@ -39,6 +40,9 @@
         "selectedIconPath": "/assets/tabbar/userSelect.png"
       }
     ]
+  },
+  "usingComponents": {
+    "my-cpn": "/components/my-cpn/my-cpn"
   },
   "sitemapLocation": "sitemap.json"
 }

@@ -1,0 +1,40 @@
+<!--pages/cpn/cpn.wxml-->
+<!-- 使用自定义组件 可以使用单标签，也可以使用双标签-->
+<!-- <my-cpn></my-cpn>
+<my-cpn/> -->
+
+<!-- <view class="title">hello word</view> -->
+<!-- <my-style/> -->
+
+<!-- 给自定义组件传递数据/样式 -->
+<my-prop title="哈哈" titleclass="red"/>
+<my-prop title="呵呵" titleclass="blue"/>
+<my-prop titleclass="green"/>
+
+<!-- 传递事件 -->
+<view>当前计数: {{counter}}</view>
+<my-event bind:increment="handleIncrement"/>
+
+<!-- tab-control练习 -->
+<w-tab-control titles="{{['流行','新款','精选']}}"
+                bind:itemclick="handleTabClick"/>
+
+<!-- 直接选 中组件修改数据、调用方法 -->
+<button size="mini" bind:tap="handleIncrementCpn">修改组件内数据</button>
+<my-sel class="sel-class" id="sel-id"/>
+
+<view>--------------</view>
+<!-- 插槽使用 -->
+<!-- <my-slot>
+  <button size="mini">插槽</button>
+</my-slot> -->
+
+<!-- 多个插槽使用 
+  给每一个插槽取一个名字
+  必须在component对象中添加一个选项:options
+-->
+<my-mslot>
+  <view slot="slot3">qekfdl</view>
+  <button size="mini" slot = "slot2">按钮</button>
+  <slider slot="slot1"></slider>
+</my-mslot>

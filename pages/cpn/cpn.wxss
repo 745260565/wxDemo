@@ -1,0 +1,17 @@
+/* pages/cpn/cpn.wxss */
+.title{
+  color: red;
+  font-size: 60rpx;
+}
+
+.red{
+  color: red !important;
+}
+
+.green{
+  color: green !important;
+}
+
+.blue {
+  color: blue !important;
+}
