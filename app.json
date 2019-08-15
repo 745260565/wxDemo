@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/toast/toast",
+    "pages/request/request",
     "pages/cpn/cpn",
     "pages/home/home",
     "pages/wxs/wxs",

@@ -1,5 +1,8 @@
 //app.js
 //注册一个小程序
+
+const TOKEN = 'token'
+
 App({
   //小程序初始化完成时，会执行的生命周期函数
   onLaunch: function (options) {
@@ -8,13 +11,15 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
+    
+    //先从缓存中取出token
+    const token = wx.getStorageSync(TOKEN)
+    if(token && token.length !== 0){//已经有token，验证token是否过期
+      this.check_token(token)
+    }else{
+      this.login()
+    }
+    
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -46,9 +51,58 @@ App({
     //   throw err
     // }, 3000)
   },
+
+  login(){
+    console.log('执行登录')
+    // 登录
+    wx.login({
+      success: res => {
+        console.log(res)
+        // code只有五分钟有效期
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        wx.request({
+          url: 'http://123.207.32.32:3000/login',
+          data: {
+            code: res.code
+          },
+          method: 'post',
+          success: res => {
+            // 取出token
+            const token = res.data.token;
+            // token保存到globalData中
+            this.globalData.token = token;
+            // console.log(this.globalData.token)
+            // console.log(res)
+            // 进行本地存储
+            wx.setStorageSync(TOKEN, token)
+          },
+
+        })
+      }
+    })
+  },
+
+  check_token(token){
+    console.log('执行验证token')
+    wx.request({
+      url: 'http://123.207.32.32.3000/auth',
+      method: 'post',
+      header: {
+        token
+      },
+      success: (res) => {
+        console.log(res)
+      },
+      fail: function(err) {
+        console.log(err)
+      }
+    })
+  },
+
   globalData: {
     name: 'chenghao',
     age: 30,
+    token: '',
     userInfo: null
   },
   //小程序界面显示出来之后会执行的生命周期函数

@@ -63,7 +63,7 @@ Component({
     moved() {
       console.log('组件被移动到另外一个节点')
     },
-    dettached() {
+    detached() {
       console.log('组件被移除掉')
     }
   }

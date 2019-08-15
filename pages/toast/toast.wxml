@@ -1,0 +1,8 @@
+<!--pages/toast/toast.wxml-->
+<!-- toast -->
+
+<button size="mini" bind:tap ="handleShowToast">ShowToast</button>
+<button size="mini" bind:tap ="handleShowModal">ShowModal</button>
+<button size="mini" bind:tap ="handleShowLoading">ShowLoading</button>
+<button size="mini" bind:tap ="handleShowActionSheet">ShowActionSheet</button>
+<button size="mini" open-type="share">分享</button>
